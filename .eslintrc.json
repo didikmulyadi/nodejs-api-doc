@@ -1,0 +1,114 @@
+{
+  "extends": ["eslint:recommended", "prettier"],
+  "plugins": ["simple-import-sort", "testing-library", "jsdoc", "import"],
+  "overrides": [
+    {
+      "files": [
+        "./src/app/**/*.{ts,tsx}",
+        "./src/redux/modules/**/*.api.ts",
+        "./src/redux/modules/**/*.slice.ts",
+        "./src/redux/libs.tsx",
+        "./*.config.ts",
+        "./*.config.js",
+        "./src/middleware.ts",
+        "./src/component/**/*.stories.ts"
+      ],
+      "rules": {
+        "import/no-unused-modules": "off"
+      }
+    }
+  ],
+  "rules": {
+    "prefer-const": "error",
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
+    "react/function-component-definition": [
+      "error",
+      { "namedComponents": "arrow-function" }
+    ],
+
+    // simple-import-sort
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          // 1. Side effect imports
+          ["^\\u0000"],
+          // 2. React and React Native imports
+          ["^react$", "^react/"],
+          // 3. Any other 3rd party imports
+          ["^@?\\w"],
+          // 4. Our modules, other than the module the current file is part of
+          ["^@/config?\\w", "^@/components?\\w", "^@/redux?\\w"],
+          // 5. Other parts of the same module that the current file is part of (relative import)
+          ["^\\."],
+          // 6. Styles
+          ["^\\./styles"],
+          // 7. Types
+          ["^.*\\u0000$"]
+        ]
+      }
+    ],
+    "simple-import-sort/exports": "error",
+
+    // testing-library
+    "testing-library/consistent-data-testid": [
+      "error",
+      {
+        "testIdAttribute": ["data-testid"],
+        "testIdPattern": "^(input|button|link|text|container|list|item)(__[a-z]*[0-9]?)?$"
+      }
+    ],
+
+    // Props name control
+    "react/boolean-prop-naming": [
+      "error",
+      { "rule": "^(is|has)[A-Z]([A-Za-z0-9]?)+" }
+    ],
+
+    // js-doc
+    "jsdoc/require-jsdoc": [
+      "error",
+      {
+        "contexts": [
+          "TSInterfaceDeclaration", // interface should have a description
+          "TSPropertySignature", // interface property should have a description
+          "TSMethodSignature"
+        ]
+      }
+    ],
+    "jsdoc/check-access": 1, // Recommended
+    "jsdoc/check-alignment": 1, // Recommended
+    "jsdoc/check-param-names": 1, // Recommended
+    "jsdoc/check-property-names": 1, // Recommended
+    "jsdoc/check-tag-names": 1, // Recommended
+    "jsdoc/check-types": 1, // Recommended
+    "jsdoc/check-values": 1, // Recommended
+    "jsdoc/empty-tags": 1, // Recommended
+    "jsdoc/implements-on-classes": 1, // Recommended
+    "jsdoc/multiline-blocks": 1, // Recommended
+    "jsdoc/no-multi-asterisks": 1, // Recommended
+    "jsdoc/no-undefined-types": 1, // Recommended
+    "jsdoc/require-param": 1, // Recommended
+    "jsdoc/require-param-description": 1, // Recommended
+    "jsdoc/require-param-name": 1, // Recommended
+    "jsdoc/require-param-type": 1, // Recommended
+    "jsdoc/require-property": 1, // Recommended
+    "jsdoc/require-property-description": 1, // Recommended
+    "jsdoc/require-property-name": 1, // Recommended
+    "jsdoc/require-property-type": 1, // Recommended
+    "jsdoc/require-returns": 0,
+    "jsdoc/require-returns-check": 0,
+    "jsdoc/require-returns-description": 0,
+    "jsdoc/require-throws": 1,
+    "jsdoc/require-yields": 1, // Recommended
+    "jsdoc/require-yields-check": 1, // Recommended
+    "jsdoc/sort-tags": 1,
+    "jsdoc/tag-lines": 1, // Recommended
+    "jsdoc/valid-types": 1, // Recommended
+
+    // import
+    "import/no-unused-modules": [2, { "unusedExports": true }],
+    "import/exports-last": 2
+  }
+}
