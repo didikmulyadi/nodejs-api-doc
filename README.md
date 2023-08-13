@@ -1,5 +1,5 @@
-<h1 align="center" style="border-bottom: none;">⚡️@didik-mulyadi/npm-package</h1>
-<h3 align="center">A simple skeleton to create an npm package.</h3>
+<h1 align="center" style="border-bottom: none;">⚡️@didik-mulyadi/nodejs-api-docs</h1>
+<h3 align="center">A package to generate the API docs based on the open API file.</h3>
 <br />
 <p align="center">
   <p align="center">
@@ -9,22 +9,20 @@
 <br />
 <hr />
 
-`@didik-mulyadi/npm-package` is a javascript library with type support that help you to generate the api docs.
-
 ## Installation 🚀
 
-Install `@didik-mulyadi/npm-package` using pnpm/npm/yarn:
+Install `@didik-mulyadi/nodejs-api-docs` using pnpm/npm/yarn:
 
 ```bash
-pnpm add @didik-mulyadi/npm-package
+pnpm add @didik-mulyadi/nodejs-api-docs
 
 # OR
 
-npm install @didik-mulyadi/npm-package
+npm install @didik-mulyadi/nodejs-api-docs
 
 # OR
 
-yarn add @didik-mulyadi/npm-package
+yarn add @didik-mulyadi/nodejs-api-docs
 ```
 
 ## Usage 💻
@@ -32,7 +30,7 @@ yarn add @didik-mulyadi/npm-package
 Here's an example of how to use this package:
 
 ```javascript
-// PUT YOUR CODE
+// TODO
 ```
 
 ## Configuration options ⚙️
