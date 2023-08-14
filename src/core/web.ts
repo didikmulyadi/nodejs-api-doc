@@ -1,12 +1,9 @@
 type UIDocType = 'stoplight' | 'swagger' | 'redoc'
 type UIDocOption = {
-  title?: string
+  title: string
 }
 
-const getUIRedocHTML = (
-  openApiPath: string,
-  { title = 'API Docs' }: UIDocOption
-) => {
+const getUIRedocHTML = (openApiPath: string, { title }: UIDocOption) => {
   return `
     <!DOCTYPE html>
     <html>
@@ -34,7 +31,7 @@ const getUIRedocHTML = (
             <!--
             Redoc element with link to your OpenAPI definition
             -->
-            <redoc spec-url="${openApiPath}"></redoc>
+            <redoc spec-url="${openApiPath}/openapi"></redoc>
             <!--
             Link to Redoc JavaScript on CDN for rendering standalone element
             -->
@@ -44,10 +41,7 @@ const getUIRedocHTML = (
     `
 }
 
-const getUISwaggerHTML = (
-  openApiPath: string,
-  { title = 'API Docs' }: UIDocOption
-) => {
+const getUISwaggerHTML = (openApiPath: string, { title }: UIDocOption) => {
   return `
     <!DOCTYPE html>
     <html lang="en">
@@ -68,7 +62,7 @@ const getUISwaggerHTML = (
       <script>
         window.onload = () => {
           window.ui = SwaggerUIBundle({
-            url: '${openApiPath}',
+            url: '${openApiPath}/openapi',
             dom_id: '#swagger-ui',
             presets: [
               SwaggerUIBundle.presets.apis,
@@ -83,10 +77,7 @@ const getUISwaggerHTML = (
   `
 }
 
-const getUIStopLightHTML = (
-  openApiPath: string,
-  { title = 'API Docs' }: UIDocOption
-) => {
+const getUIStopLightHTML = (openApiPath: string, { title }: UIDocOption) => {
   return `
     <!doctype html>
     <html lang="en">
@@ -100,7 +91,7 @@ const getUIStopLightHTML = (
       </head>
       <body>
         <elements-api
-          apiDescriptionUrl="${openApiPath}"
+          apiDescriptionUrl="${openApiPath}/openapi"
           router="hash"
           layout="sidebar"
         />
@@ -133,7 +124,7 @@ const getUIBasedOnType = (type: UIDocType) => {
  * A function to determine the UI based on the type
  * @returns a function to generate the type
  */
-const determineUI = (param: { default: UIDocType; type?: UIDocType }) => {
+const determineUI = (param: { default: UIDocType; type: UIDocType }) => {
   if (param.type) {
     return getUIBasedOnType(param.type)
   }
@@ -141,5 +132,5 @@ const determineUI = (param: { default: UIDocType; type?: UIDocType }) => {
   return getUIBasedOnType(param.default)
 }
 
-export type { UIDocType }
+export type { UIDocType, UIDocOption }
 export { determineUI }

@@ -1,24 +1,36 @@
-import { UIDocType, determineUI } from './web'
+import { UIDocOption, UIDocType, determineUI } from '@/core/web'
 
 /**
  * A handler to determine the open API
  */
-const handlerParamOpenApi30 = (docPath: string, document: object) => [
-  `${docPath}/openapi`,
+const handlerParamOpenApi30 = (param: {
+  docPath: string
+  document: object
+}) => [
+  `${param.docPath}/openapi`,
   (_: any, res: any) => {
-    res.type('application/json').send(document)
+    res.type('application/json').send(param.document)
   },
 ]
 
 /**
  * A handler to determine the docs
  */
-const handlerParamsDocs = (docPath: string, defaultUI: UIDocType) => [
-  docPath,
+const handlerParamsDocs = (param: {
+  docPath: string
+  defaultUI: UIDocType
+  docOption: UIDocOption
+}) => [
+  param.docPath,
   (req: any, res: any) => {
     res
       .type('text/html')
-      .send(determineUI({ default: defaultUI, type: req.query.ui }))
+      .send(
+        determineUI({ default: param.defaultUI, type: req.query.ui })(
+          param.docPath,
+          param.docOption
+        )
+      )
   },
 ]
 
