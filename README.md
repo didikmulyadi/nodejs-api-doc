@@ -51,8 +51,6 @@ Example the path is `/docs
 2. Use Stoplight UI, `/docs?ui=stoplight`
 3. Use Redoc UI, `/docs?ui=redoc`
 
-_TODO: Add a video of usage_
-
 ## Implementation 💻
 
 Here's an example of how to use this package:
@@ -106,6 +104,14 @@ async function bootstrap() {
 ## Bugs or Requests 🐛
 
 If you found any issue or have a good suggestion, feel free to open an [issue](https://github.com/didikmulyadi/nodejs-api-doc/issues/new)
+
+## TODO
+
+We are still updating this package, to make it more usefull and easy to use. Here are the next that author want to do
+
+- [] Add an example in `examples` directory for Nest.js Fastify Swagger
+- [] Add an example in `examples` directory for Nest.js Express Swagger
+- [] Add support Express.js
 
 ## Find Me 📖
 
