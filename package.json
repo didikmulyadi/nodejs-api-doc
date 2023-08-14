@@ -1,6 +1,6 @@
 {
   "name": "@didik-mulyadi/nodejs-api-doc",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "A template to develop NPM package with Typescript",
   "repository": {
     "type": "git",
