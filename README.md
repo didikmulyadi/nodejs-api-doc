@@ -27,6 +27,16 @@ yarn add @didik-mulyadi/nodejs-api-doc
 
 ## Usage 💻
 
+After we setup the package correctly, we can switch the UI in your docs with this. <br/>
+
+Example the path is `/docs
+
+1. Use Swagger UI, `/docs?ui=swagger`
+2. Use Stoplight UI, `/docs?ui=stoplight`
+3. Use Redoc UI, `/docs?ui=redoc`
+
+## Implementation 💻
+
 Here's an example of how to use this package:
 
 ## nodejs-api-doc with @nest/swagger
