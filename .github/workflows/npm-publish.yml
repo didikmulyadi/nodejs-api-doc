@@ -27,13 +27,8 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
           scope: '@didik-mulyadi'
-      - run: git config --global user.name "didikmulyad as github action"
-      - run: git config --global user.email "didikmulyadi12@gmail.com"
-      - run: npm version ${{ github.event.release.tag_name }}
       - run: npm ci
+      - run: npm run build
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
-      - run: git push
-        env:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
