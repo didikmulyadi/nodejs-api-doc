@@ -113,6 +113,8 @@ We are still updating this package, to make it more useful and easy to use. Here
 - [ ] Add an example in `examples` directory for Nest.js Fastify Swagger
 - [ ] Add an example in `examples` directory for Nest.js Express Swagger
 - [ ] Add support for Express.js
+- [ ] Add readme for `bug_report.md`
+- [ ] Add readme for `feature_request.md`
 
 ## Find Me 📖
 
