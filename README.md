@@ -1,5 +1,5 @@
 <h1 align="center" style="border-bottom: none;">⚡️@didik-mulyadi/nodejs-api-docs</h1>
-<h3 align="center">A package to generate the API docs based on the open API file.</h3>
+<h3 align="center">A package to generate the API docs with multiple UI based on the open API file.</h3>
 <br />
 <p align="center">
   <p align="center">
