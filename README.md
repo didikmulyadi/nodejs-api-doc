@@ -27,9 +27,16 @@ yarn add @didik-mulyadi/nodejs-api-docs
 
 ## Usage 💻
 
+Here's an example of how to use this package:
+
 ## nodejs-api-doc with @nest/swagger
 
-Here's an example of how to use this package:
+Step:
+
+1. Create a swagger config with `new DocumentBuilder()`
+2. Generate open api document object with `SwaggerModule.createDocument(app, config)`
+3. Setup nodejs-api-doc with `new NodejsApiDoc`
+4. Start nodejs-api-doc with `nodejsApiDoc.start()`
 
 ```typescript
 // src/main.ts
