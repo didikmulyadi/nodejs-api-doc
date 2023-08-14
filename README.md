@@ -1,9 +1,9 @@
-<h1 align="center" style="border-bottom: none;">⚡️@didik-mulyadi/nodejs-api-docs</h1>
+<h1 align="center" style="border-bottom: none;">⚡️@didik-mulyadi/nodejs-api-doc</h1>
 <h3 align="center">A package to generate the API docs with multiple UI based on the open API file.</h3>
 <br />
 <p align="center">
   <p align="center">
-    <a href="https://github.com/didikmulyadi/nodejs-api-docs/issues/new">Bug report</a>
+    <a href="https://github.com/didikmulyadi/nodejs-api-doc/issues/new">Bug report</a>
   </p>
 </p>
 <br />
@@ -11,18 +11,18 @@
 
 ## Installation 🚀
 
-Install `@didik-mulyadi/nodejs-api-docs` using pnpm/npm/yarn:
+Install `@didik-mulyadi/nodejs-api-doc` using pnpm/npm/yarn:
 
 ```bash
-pnpm add @didik-mulyadi/nodejs-api-docs
+pnpm add @didik-mulyadi/nodejs-api-doc
 
 # OR
 
-npm install @didik-mulyadi/nodejs-api-docs
+npm install @didik-mulyadi/nodejs-api-doc
 
 # OR
 
-yarn add @didik-mulyadi/nodejs-api-docs
+yarn add @didik-mulyadi/nodejs-api-doc
 ```
 
 ## Usage 💻
@@ -77,7 +77,7 @@ async function bootstrap() {
 
 ## Bugs or Requests 🐛
 
-If you found any issue or have a good suggestion, feel free to open an [issue](https://github.com/didikmulyadi/nodejs-api-docs/issues/new)
+If you found any issue or have a good suggestion, feel free to open an [issue](https://github.com/didikmulyadi/nodejs-api-doc/issues/new)
 
 ## Find Me 📖
 

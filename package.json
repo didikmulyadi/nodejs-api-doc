@@ -1,7 +1,7 @@
 {
   "name": "@didik-mulyadi/nodejs-api-doc",
-  "version": "1.0.0",
-  "description": "A nodejs library to generate the API Docs with many UI",
+  "version": "1.0.1",
+  "description": "A nodejs library to generate the API Docs with multiple UI",
   "repository": {
     "type": "git",
     "url": "https://github.com/didikmulyadi/nodejs-api-doc.git"
