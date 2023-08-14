@@ -1,10 +1,10 @@
 {
-  "name": "@didik-mulyadi/nest-api-doc",
+  "name": "@didik-mulyadi/nodejs-api-doc",
   "version": "0.0.0-development",
   "description": "A template to develop NPM package with Typescript",
   "repository": {
     "type": "git",
-    "url": "https://github.com/didikmulyadi/npm-package-creator.git"
+    "url": "https://github.com/didikmulyadi/nodejs-api-doc.git"
   },
   "scripts": {
     "build": "tsup",
@@ -27,8 +27,8 @@
     "tsup": "^7.0.0",
     "typescript": "^5.0.4"
   },
-  "homepage": "https://github.com/didikmulyadi/npm-package-creator",
-  "bugs": "https://github.com/didikmulyadi/npm-package-creator/issues",
+  "homepage": "https://github.com/didikmulyadi/nodejs-api-doc",
+  "bugs": "https://github.com/didikmulyadi/nodejs-api-doc/issues",
   "author": {
     "name": "Didik Mulyadi",
     "email": "didikmulyadi12@gmail.com",
