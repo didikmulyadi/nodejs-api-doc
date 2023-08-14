@@ -79,6 +79,8 @@ async function bootstrap() {
 
 If you found any issue or have a good suggestion, feel free to open an [issue](https://github.com/didikmulyadi/nodejs-api-docs/issues/new)
 
-### Find Me 📖
+## Find Me 📖
+
+Reach me on:
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/https://www.linkedin.com/in/didikmulyadi/) [![Medium](https://img.shields.io/badge/Medium-12100E?logo=medium&logoColor=white)](https://medium.com/@https://didikmulyadi.medium.com/)
