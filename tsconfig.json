@@ -9,7 +9,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@didik-mulyadi/nodejs-api-docs/*": ["./src/*"]
     },
     "resolveJsonModule": true,
     "sourceMap": true,
