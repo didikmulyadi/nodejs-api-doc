@@ -3,7 +3,7 @@
 <br />
 <p align="center">
   <p align="center">
-    <a href="https://github.com/didikmulyadi/npm-package-creator/issues/new">Bug report</a>
+    <a href="https://github.com/didikmulyadi/nodejs-api-docs/issues/new">Bug report</a>
   </p>
 </p>
 <br />
@@ -77,4 +77,8 @@ async function bootstrap() {
 
 ## Bugs or Requests 🐛
 
-If you found any issue or have a good suggestion, feel free to open an [issue](https://github.com/didikmulyadi/npm-package-creator/issues/new)
+If you found any issue or have a good suggestion, feel free to open an [issue](https://github.com/didikmulyadi/nodejs-api-docs/issues/new)
+
+### Find Me 📖
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/https://www.linkedin.com/in/didikmulyadi/) [![Medium](https://img.shields.io/badge/Medium-12100E?logo=medium&logoColor=white)](https://medium.com/@https://didikmulyadi.medium.com/)
