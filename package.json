@@ -1,7 +1,7 @@
 {
   "name": "@didik-mulyadi/nodejs-api-doc",
   "version": "1.0.0",
-  "description": "A template to develop NPM package with Typescript",
+  "description": "A nodejs library to generate the API Docs with many UI",
   "repository": {
     "type": "git",
     "url": "https://github.com/didikmulyadi/nodejs-api-doc.git"
@@ -35,8 +35,14 @@
     "url": "https://www.linkedin.com/in/didikmulyadi"
   },
   "keywords": [
-    "npm-package-boilerplate",
-    "npm-package-typescript-template"
+    "api-docs",
+    "api-documentation",
+    "swagger",
+    "redoc",
+    "stoplight",
+    "nodejs",
+    "nestjs-api-doc",
+    "nodejs-api-doc"
   ],
   "license": "MIT",
   "main": "./dist/index.js",
