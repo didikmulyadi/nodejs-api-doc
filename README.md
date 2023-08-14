@@ -3,9 +3,6 @@
 <br />
 <p align="center">
   <p align="center">
-    <a href="https://github.com/didikmulyadi/nodejs-api-doc/actions/workflows/npm-publish.yml">
-      <img alt="Build states" src="https://github.com/didikmulyadi/nodejs-api-doc/actions/workflows/npm-publish.yml/badge.svg?branch=main">
-    </a>
     <a href="https://www.npmjs.com/package/@didik-mulyadi/nodejs-api-doc">
       <img alt="npm latest version" src="https://img.shields.io/npm/v/@didik-mulyadi/nodejs-api-doc/latest.svg">
     </a>
