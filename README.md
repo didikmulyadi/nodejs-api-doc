@@ -3,7 +3,24 @@
 <br />
 <p align="center">
   <p align="center">
-    <a href="https://github.com/didikmulyadi/nodejs-api-doc/issues/new">Bug report</a>
+    <a href="https://github.com/didikmulyadi/nodejs-api-doc/actions/workflows/test-and-release.yml">
+      <img alt="Build states" src="https://github.com/didikmulyadi/nodejs-api-doc/actions/workflows/npm-publish.yml/badge.svg?branch=main">
+    </a>
+    <a href="https://www.npmjs.com/package/@didik-mulyadi/nodejs-api-doc">
+      <img alt="npm latest version" src="https://img.shields.io/npm/v/@didik-mulyadi/nodejs-api-doc/latest.svg">
+    </a>
+    <a href="https://www.npmjs.com/package/@didik-mulyadi/nodejs-api-doc">
+      <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/@didik-mulyadi/nodejs-api-doc">
+    </a>
+    <img alt="Visitors count" src="https://visitor-badge.laobi.icu/badge?page_id=@didik-mulyadi~nodejs-api-doc.visitor-badge&style=flat-square&color=0088cc">
+    <a href="https://www.npmjs.com/package/@didik-mulyadi/nodejs-api-doc">
+      <img alt="NPM license" src="https://img.shields.io/npm/l/@didik-mulyadi/nodejs-api-doc">
+    </a>
+    <p align="center">
+      <a href="https://github.com/didikmulyadi/nodejs-api-doc/issues/new?template=bug_report.md">Bug report</a>
+      ·
+      <a href="https://github.com/didikmulyadi/nodejs-api-doc/issues/new?template=feature_request.md">Feature request</a>
+    </p>
   </p>
 </p>
 <br />
@@ -34,6 +51,8 @@ Example the path is `/docs
 1. Use Swagger UI, `/docs?ui=swagger`
 2. Use Stoplight UI, `/docs?ui=stoplight`
 3. Use Redoc UI, `/docs?ui=redoc`
+
+_TODO: Add a video of usage_
 
 ## Implementation 💻
 
