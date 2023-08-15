@@ -55,34 +55,42 @@ Example the path is `/docs
 
 Here's an example of how to use this package:
 
-## nodejs-api-doc with @nest/swagger
+## nodejs-api-doc with Nest Fastify + @nest/swagger
 
 Step:
 
 1. Modify your `src/main.ts`
 2. Create a swagger config with `new DocumentBuilder()`
 3. Generate open api document object with `SwaggerModule.createDocument(app, config)`
-4. Setup nodejs-api-doc with `new NodejsApiDoc`
+4. Setup nodejs-api-doc with `new NestApiDoc`
 5. Start nodejs-api-doc with `nodejsApiDoc.start()`
 
 ```typescript
-// swagger
-const config = new DocumentBuilder()
-  .setTitle('Node.js API Docs')
-  .setDescription('This API provides ...')
-  .setVersion('0.0.1')
-  .build()
-const document = SwaggerModule.createDocument(app, config)
+import { NestApiDoc } from '@didik-mulyadi/nodejs-api-doc'
 
-// nodejs-api-doc
-const nodejsApiDoc = new NodejsApiDoc(app, document, {
-  defaultUI: 'redoc',
-  customPath: '/api-docs',
-})
-nodejsApiDoc.start()
+async function bootstrap() {
+  const app = await NestFactory.create<NestFastifyApplication>(
+    AppModule,
+    new FastifyAdapter()
+  )
+  // swagger
+  const config = new DocumentBuilder()
+    .setTitle('Node.js API Docs')
+    .setDescription('This API provides ...')
+    .setVersion('0.0.1')
+    .build()
+  const document = SwaggerModule.createDocument(app, config)
 
-// Run the nestjs
-await app.listen(8080, '0.0.0.0')
+  // nodejs-api-doc
+  const nestApiDoc = new NestApiDoc(app, document, {
+    defaultUI: 'stoplight',
+    customPath: '/docs',
+  })
+  nestApiDoc.start()
+
+  // Run the nestjs
+  await app.listen(8080, '0.0.0.0')
+}
 ```
 
 ## Configuration options ⚙️
@@ -92,7 +100,7 @@ await app.listen(8080, '0.0.0.0')
 #### Nest.JS Fastify Helmet
 
 ```typescript
-import { NodejsApiDoc, helmetConfig } from '@didik-mulyadi/nodejs-api-doc';
+import { NestApiDoc, helmetConfig } from '@didik-mulyadi/nodejs-api-doc';
 
 async function bootstrap() {
   ...
