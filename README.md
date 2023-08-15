@@ -16,7 +16,7 @@
 </p>
 <br />
 <p align="center">
-   <a href="[https://github.com/didikmulyadi/nodejs-api-doc/issues/new?template=bug_report.md](https://github.com/didikmulyadi/nodejs-api-doc/issues/new?template=bug_report.md)">Bug report</a>      ·
+   <a href="https://github.com/didikmulyadi/nodejs-api-doc/issues/new?template=bug_report.md">Bug report</a>      ·
    <a href="https://github.com/didikmulyadi/nodejs-api-doc/issues/new?template=feature_request.md">Feature request</a>
 </p>
 <br />
