@@ -1,6 +1,5 @@
 <h1 align="center" style="border-bottom: none;">⚡️@didik-mulyadi/nodejs-api-doc</h1>
 <h3 align="center">A package to generate the API docs with multiple UI based on the open API file.</h3>
-<br />
 <p align="center">
   <p align="center">
     <a href="https://www.npmjs.com/package/@didik-mulyadi/nodejs-api-doc">
@@ -13,17 +12,19 @@
     <a href="https://www.npmjs.com/package/@didik-mulyadi/nodejs-api-doc">
       <img alt="NPM license" src="https://img.shields.io/npm/l/@didik-mulyadi/nodejs-api-doc">
     </a>
-    <p align="center">
-      <a href="https://github.com/didikmulyadi/nodejs-api-doc/issues/new?template=bug_report.md">Bug report</a>
-      ·
-      <a href="https://github.com/didikmulyadi/nodejs-api-doc/issues/new?template=feature_request.md">Feature request</a>
-    </p>
   </p>
+</p>
+<br />
+<p align="center">
+   <a href="[https://github.com/didikmulyadi/nodejs-api-doc/issues/new?template=bug_report.md](https://github.com/didikmulyadi/nodejs-api-doc/issues/new?template=bug_report.md)">Bug report</a>      ·
+   <a href="https://github.com/didikmulyadi/nodejs-api-doc/issues/new?template=feature_request.md">Feature request</a>
 </p>
 <br />
 <hr />
 
-At this point, we are focus on to implement multiple UI API docs for Nest.JS and Express and working with others library that is generate the open api doc. but, in the future we will create our open api doc generation, "One Code for All Frameworks".
+At this point, we are focusing on implementing multiple UI API docs for Nest.JS and Express and working with other libraries that generate the open API doc. 
+
+but, in the future, we will create our open API doc generation, "One Code for All Frameworks".
 
 ## Installation 🚀
 
@@ -43,9 +44,9 @@ yarn add @didik-mulyadi/nodejs-api-doc
 
 ## Usage 💻
 
-After we setup the package correctly, we can switch the UI in your docs with this. <br/>
+After we set up the package correctly, we can switch the UI in your docs with this. <br/>
 
-Example the path is `/docs
+For example, the path is `/docs
 
 1. Use Swagger UI, `/docs?ui=swagger`
 2. Use Stoplight UI, `/docs?ui=stoplight`
@@ -111,15 +112,17 @@ async function bootstrap() {
 
 ## Bugs or Requests 🐛
 
-If you found any issue or have a good suggestion, feel free to open an [issue](https://github.com/didikmulyadi/nodejs-api-doc/issues/new)
+If you found any issues or have a good suggestion, feel free to open an [issue](https://github.com/didikmulyadi/nodejs-api-doc/issues/new)
 
 ## TODO
 
-We are still updating this package, to make it more usefull and easy to use. Here are the next that author want to do
+We are still updating this package, to make it more useful and easy to use. Here are the next that author wants to do
 
-- [] Add an example in `examples` directory for Nest.js Fastify Swagger
-- [] Add an example in `examples` directory for Nest.js Express Swagger
-- [] Add support Express.js
+- [ ] Add an example in `examples` directory for Nest.js Fastify Swagger
+- [ ] Add an example in `examples` directory for Nest.js Express Swagger
+- [ ] Add support for Express.js
+- [ ] Add readme for `bug_report.md`
+- [ ] Add readme for `feature_request.md`
 
 ## Find Me 📖
 
