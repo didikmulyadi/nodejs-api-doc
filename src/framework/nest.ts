@@ -4,7 +4,7 @@ import { Config, ConfigOnConstructor } from '@/core/type'
 
 type AdapterType = 'fastify' | 'express'
 
-class NodejsApiDoc {
+class NestApiDoc {
   app: any
   adapterType: AdapterType
   document: any
@@ -74,4 +74,4 @@ class NodejsApiDoc {
   }
 }
 
-export { NodejsApiDoc }
+export { NestApiDoc }
