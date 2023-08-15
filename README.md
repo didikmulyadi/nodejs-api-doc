@@ -62,6 +62,7 @@ For example, your api doc location is `http://localhost:3000/docs
 
 ![image](https://github.com/didikmulyadi/nodejs-api-doc/assets/26898125/84232bb9-5fa1-4700-949f-e41ff868be1a)
 
+For code examples, see the `examples` directory or [click](https://github.com/didikmulyadi/nodejs-api-doc/tree/main/examples).
 
 ## Implementation 💻
 
@@ -129,8 +130,6 @@ If you found any issues or have a good suggestion, feel free to open an [issue](
 
 We are still updating this package, to make it more useful and easy to use. Here are the next that author wants to do
 
-- [ ] Add an example in `examples` directory for Nest.js Fastify Swagger
-- [ ] Add an example in `examples` directory for Nest.js Express Swagger
 - [ ] Add support for Express.js
 - [ ] Add readme for `bug_report.md`
 - [ ] Add readme for `feature_request.md`
