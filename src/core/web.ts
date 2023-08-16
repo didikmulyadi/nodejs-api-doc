@@ -100,6 +100,21 @@ const getUIStopLightHTML = (
           .sl-elements-api div[data-testid="two-column-right"] {
             max-width: 1000px !important;
           }
+
+          @media (max-width: 1024px) {
+            .sl-elements-api div[data-testid="two-column-right"] {
+              width: 100% !important;
+              margin-left: 0 !important;
+            }
+
+            .sl-elements-api div[data-testid="two-column-left"] {
+              width: 100% !important;
+            }
+
+            .sl-elements-api .sl-overflow-y-auto.sl-bg-canvas > div:first-child > .HttpOperation > div:nth-child(2) {
+              display: block !important;
+            }
+          }
         </style>
       </head>
       <body>
