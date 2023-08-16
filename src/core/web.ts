@@ -1,6 +1,7 @@
 type UIDocType = 'stoplight' | 'swagger' | 'redoc'
 type UIDocOption = {
   title: string
+  layout: string
 }
 
 const getUIRedocHTML = (openApiPath: string, { title }: UIDocOption) => {
@@ -77,7 +78,10 @@ const getUISwaggerHTML = (openApiPath: string, { title }: UIDocOption) => {
   `
 }
 
-const getUIStopLightHTML = (openApiPath: string, { title }: UIDocOption) => {
+const getUIStopLightHTML = (
+  openApiPath: string,
+  { title, layout }: UIDocOption
+) => {
   return `
     <!doctype html>
     <html lang="en">
@@ -93,7 +97,7 @@ const getUIStopLightHTML = (openApiPath: string, { title }: UIDocOption) => {
         <elements-api
           apiDescriptionUrl="${openApiPath}/openapi"
           router="hash"
-          layout="sidebar"
+          layout="${layout}"
         />
       </body>
     </html>

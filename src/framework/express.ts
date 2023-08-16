@@ -19,7 +19,7 @@ class ExpressApiDoc extends JSApiDocBaseFramework implements IBaseFramework {
       ...handlerParamsDocs({
         docPath: this.config.customPath,
         defaultUI: this.config.defaultUI,
-        docOption: { title: this.config.title },
+        docOption: { title: this.config.title, layout: this.config.layout },
       })
     )
   }

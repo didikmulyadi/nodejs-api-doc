@@ -1,4 +1,9 @@
-import { DEFAULT_PATH, DEFAULT_TITLE, DEFAULT_UI } from '@/core/constant'
+import {
+  DEFAULT_PATH,
+  DEFAULT_STOPLIGHT_LAYOUT,
+  DEFAULT_TITLE,
+  DEFAULT_UI,
+} from '@/core/constant'
 import { Config, ConfigOnConstructor } from '@/core/type'
 
 class JSApiDocBaseFramework {
@@ -33,6 +38,16 @@ class JSApiDocBaseFramework {
       title = DEFAULT_TITLE,
     } = config
 
+    let layout = ''
+
+    if (!config.layout) {
+      if (config.defaultUI === 'stoplight') {
+        layout = DEFAULT_STOPLIGHT_LAYOUT
+      }
+    } else {
+      layout = config.layout
+    }
+
     if (!customPath.startsWith('/', 0)) {
       throw new Error(`Custom path "${customPath}" should be "/${customPath}" `)
     }
@@ -43,6 +58,7 @@ class JSApiDocBaseFramework {
       title,
       defaultUI,
       customPath,
+      layout,
     }
   }
 }
