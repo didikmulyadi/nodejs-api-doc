@@ -91,7 +91,16 @@ const getUIStopLightHTML = (
         <title>${title}</title>
         <!-- Embed elements Elements via Web Component -->
         <script src="https://unpkg.com/@stoplight/elements/web-components.min.js"></script>
-        <link rel="stylesheet" href="https://unpkg.com/@stoplight/elements/styles.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/@stoplight/elements/styles.min.css" />
+        <style type="text/css">
+          .sl-elements-api .sl-overflow-y-auto.sl-bg-canvas > div:first-child {
+            max-width: 1800px !important;
+          }
+
+          .sl-elements-api div[data-testid="two-column-right"] {
+            max-width: 1000px !important;
+          }
+        </style>
       </head>
       <body>
         <elements-api
