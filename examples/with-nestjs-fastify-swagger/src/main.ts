@@ -13,7 +13,7 @@ import { NestApiDoc, helmetConfig } from '@didik-mulyadi/nodejs-api-doc';
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
-    new FastifyAdapter({}),
+    new FastifyAdapter(),
   );
 
   await app.register(helmet as any, helmetConfig.nodeApiDocHelmetOption);
