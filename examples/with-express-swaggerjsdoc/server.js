@@ -45,7 +45,10 @@ const options = {
 }
 
 const document = swaggerJsdoc(options)
-const expressApiDoc = new ExpressApiDoc(app, document)
+const expressApiDoc = new ExpressApiDoc(app, document, {
+  defaultUI: 'stoplight',
+  layout: 'sidebar',
+})
 expressApiDoc.start()
 
 app.listen(PORT)
