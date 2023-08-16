@@ -1,0 +1,14 @@
+{
+	"name": "simple-express-crud-api",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"@didik-mulyadi/nodejs-api-doc": "file:../..",
+		"body-parser": "^1.19.0",
+		"express": "^4.17.1",
+		"swagger-jsdoc": "^6.2.8"
+	}
+}
