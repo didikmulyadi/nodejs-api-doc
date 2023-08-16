@@ -22,9 +22,8 @@
 <br />
 <hr />
 
-At this point, we are focusing on implementing multiple UI API docs for Nest.JS and Express and working with other libraries that generate the open API doc.
-
-but, in the future, we will create our open API doc generation, "One Code for All Frameworks".
+This package already supports NestJS and ExpressJS. <br/><br/>
+At this point, we are focusing on adding examples with many js-doc libraries. In the future, we will create our open API doc generation, "One Code for All Frameworks", but don't worry we are still making it support with other libraries.
 
 ## Installation 🚀
 
@@ -46,7 +45,7 @@ yarn add @didik-mulyadi/nodejs-api-doc
 
 After we set up the package correctly, we can switch the UI in your docs with this. <br/>
 
-For example, your api doc location is `http://localhost:3000/docs
+For example, your API doc location is `http://localhost:3000/docs
 
 1. Use Swagger UI, `http://localhost:3000/docs?ui=swagger`
 
@@ -64,7 +63,7 @@ For code examples, see the `examples` directory or [click](https://github.com/di
 
 ## Compatibility ⚙️
 
-This package support for any package/library that is returned the open api object. These are tested framework and library that is compatible with our package:
+This package supports any package/library that returns the open API object. These are tested framework and library that is compatible with our package:
 
 | Library                                                                                | Support |
 | -------------------------------------------------------------------------------------- | ------- |
@@ -80,11 +79,11 @@ Here's an example of how to use this package:
 
 Step:
 
-1. Modify your `src/main.ts` with below steps
+1. Modify your `src/main.ts` with the below steps
 2. Create a swagger config with `new DocumentBuilder()`
-3. Generate open api document object with `SwaggerModule.createDocument(app, config)`
+3. Generate open API document object with `SwaggerModule.createDocument(app, config)`
 4. Setup nodejs-api-doc with `new NestApiDoc`
-5. Start nodejs-api-doc with `nodejsApiDoc.start()`
+5. Start nodejs-api-doc with `nestApiDoc.start()`
 
 ```typescript
 import { NestApiDoc } from '@didik-mulyadi/nodejs-api-doc'
@@ -118,11 +117,11 @@ async function bootstrap() {
 
 Step:
 
-1. Modify your `src/main.ts` with below steps
+1. Modify your `src/main.ts` with the below steps
 2. Create a swagger config with `new DocumentBuilder()`
-3. Generate open api document object with `SwaggerModule.createDocument(app, config)`
+3. Generate open API document object with `SwaggerModule.createDocument(app, config)`
 4. Setup nodejs-api-doc with `new NestApiDoc`
-5. Start nodejs-api-doc with `nodejsApiDoc.start()`
+5. Start nodejs-api-doc with `nestApiDoc.start()`
 
 ```typescript
 import { NestApiDoc } from '@didik-mulyadi/nodejs-api-doc'
@@ -153,8 +152,10 @@ async function bootstrap() {
 
 Step:
 
-1. Modify your `server.js` or `main.js` with below steps
-2.
+1. Modify your `server.js` or `main.js` with the below steps
+2. Call the swagger-jsdoc `const document = swaggerJsdoc(options)`
+3. Setup nodejs-api-doc `const expressApiDoc = new ExpressApiDoc(app, document)`
+4. Start nodejs-api-doc `expressApiDoc.start()`
 
 ```typescript
 const { ExpressApiDoc } = require('@didik-mulyadi/nodejs-api-doc')
@@ -223,10 +224,6 @@ If you found any issues or have a good suggestion, feel free to open an [issue](
 
 We are still updating this package, to make it more useful and easy to use. Here are the next that author wants to do
 
-# <<<<<<< HEAD
-
-- [ ] Add support for Express.js
-  > > > > > > > 25dbabca09c30f876c14c40832d502beab3e82cd
 - [ ] Add readme for `bug_report.md`
 - [ ] Add readme for `feature_request.md`
 
