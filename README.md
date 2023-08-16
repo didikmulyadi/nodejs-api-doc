@@ -22,7 +22,7 @@
 <br />
 <hr />
 
-At this point, we are focusing on implementing multiple UI API docs for Nest.JS and Express and working with other libraries that generate the open API doc. 
+At this point, we are focusing on implementing multiple UI API docs for Nest.JS and Express and working with other libraries that generate the open API doc.
 
 but, in the future, we will create our open API doc generation, "One Code for All Frameworks".
 
@@ -49,29 +49,36 @@ After we set up the package correctly, we can switch the UI in your docs with th
 For example, your api doc location is `http://localhost:3000/docs
 
 1. Use Swagger UI, `http://localhost:3000/docs?ui=swagger`
-   
+
 ![image](https://github.com/didikmulyadi/nodejs-api-doc/assets/26898125/604d25a9-cf5d-415e-ae77-ceed595755b9)
 
-
 2. Use Stoplight UI, `http://localhost:3000/docs?ui=stoplight`
-   
-![image](https://github.com/didikmulyadi/nodejs-api-doc/assets/26898125/d3562cf1-37dc-4c02-840b-96e1063f3161)
 
+![image](https://github.com/didikmulyadi/nodejs-api-doc/assets/26898125/d3562cf1-37dc-4c02-840b-96e1063f3161)
 
 3. Use Redoc UI, `http://localhost:3000/docs?ui=redoc`
 
 ![image](https://github.com/didikmulyadi/nodejs-api-doc/assets/26898125/84232bb9-5fa1-4700-949f-e41ff868be1a)
 
+## Compatibility ⚙️
+
+This package support for any package/library that is returned the open api object. These are tested framework and library that is compatible with our package:
+
+| Library                                                                                | Support |
+| -------------------------------------------------------------------------------------- | ------- |
+| Nest JS + Fastify with [@nestjs/swagger](https://docs.nestjs.com/openapi/introduction) | ✅      |
+| Nest JS + Express with [@nestjs/swagger](https://docs.nestjs.com/openapi/introduction) | ✅      |
+| Express with [swagger-jsdoc](https://www.npmjs.com/package/swagger-jsdoc)              | ✅      |
 
 ## Implementation 💻
 
 Here's an example of how to use this package:
 
-## nodejs-api-doc with Nest Fastify + @nest/swagger
+### nodejs-api-doc with Nest Fastify + @nest/swagger
 
 Step:
 
-1. Modify your `src/main.ts`
+1. Modify your `src/main.ts` with below steps
 2. Create a swagger config with `new DocumentBuilder()`
 3. Generate open api document object with `SwaggerModule.createDocument(app, config)`
 4. Setup nodejs-api-doc with `new NestApiDoc`
@@ -105,6 +112,91 @@ async function bootstrap() {
 }
 ```
 
+### nodejs-api-doc with Nest Express + @nest/swagger
+
+Step:
+
+1. Modify your `src/main.ts` with below steps
+2. Create a swagger config with `new DocumentBuilder()`
+3. Generate open api document object with `SwaggerModule.createDocument(app, config)`
+4. Setup nodejs-api-doc with `new NestApiDoc`
+5. Start nodejs-api-doc with `nodejsApiDoc.start()`
+
+```typescript
+import { NestApiDoc } from '@didik-mulyadi/nodejs-api-doc'
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule)
+  // swagger
+  const config = new DocumentBuilder()
+    .setTitle('Node.js API Docs')
+    .setDescription('This API provides ...')
+    .setVersion('0.0.1')
+    .build()
+  const document = SwaggerModule.createDocument(app, config)
+
+  // nodejs-api-doc
+  const nestApiDoc = new NestApiDoc(app, document, {
+    defaultUI: 'stoplight',
+    customPath: '/docs',
+  })
+  nestApiDoc.start()
+
+  // Run the nestjs
+  await app.listen(8080, '0.0.0.0')
+}
+```
+
+### nodejs-api-doc with Express + swagger-jsdoc
+
+Step:
+
+1. Modify your `server.js` or `main.js` with below steps
+2.
+
+```typescript
+const { ExpressApiDoc } = require('@didik-mulyadi/nodejs-api-doc')
+
+const app = express()
+
+...
+
+// swagger-jsdoc
+const options = {
+  definition: {
+    openapi: '3.1.0',
+    info: {
+      title: 'Node JS API Docs with Express',
+      version: '0.1.0',
+      description:
+        'This is a simple CRUD API application made with Express and documented with Swagger',
+      license: {
+        name: 'MIT',
+        url: 'https://spdx.org/licenses/MIT.html',
+      },
+      contact: {
+        name: 'Didik Mulyadi',
+        url: 'https://www.linkedin.com/in/didikmulyadi/',
+        email: 'didikmulyadi12@gmail.com',
+      },
+    },
+    servers: [
+      {
+        url: 'http://localhost:3000',
+      },
+    ],
+  },
+  apis: ['./routes/*.js'],
+}
+const document = swaggerJsdoc(options)
+
+// Nodejs-api-doc
+const expressApiDoc = new ExpressApiDoc(app, document)
+expressApiDoc.start()
+
+app.listen(3000)
+```
+
 ## Configuration options ⚙️
 
 ### Working with Helmet
@@ -129,9 +221,6 @@ If you found any issues or have a good suggestion, feel free to open an [issue](
 
 We are still updating this package, to make it more useful and easy to use. Here are the next that author wants to do
 
-- [ ] Add an example in `examples` directory for Nest.js Fastify Swagger
-- [ ] Add an example in `examples` directory for Nest.js Express Swagger
-- [ ] Add support for Express.js
 - [ ] Add readme for `bug_report.md`
 - [ ] Add readme for `feature_request.md`
 
