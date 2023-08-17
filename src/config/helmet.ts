@@ -37,6 +37,17 @@ const nodeApiDocHelmetOptionWorkers: string[] = [
 ]
 
 /**
+ * Allow a request to below path/domain
+ */
+const nodeApiDocHelmetOptionImages: string[] = [
+  "'self'",
+  "'unsafe-inline'",
+  'https://cdn-icons-png.flaticon.com',
+  'https://avatars.githubusercontent.com',
+  'https://res.cloudinary.com',
+]
+
+/**
  * If you are using a helmet library, there may be a problem with CSP, use this to solve it.
  * If you have already an option, and want to merge this config, you can use NestApiDocHelmetOptionScripts and NestApiDocHelmetOptionStyles
  */
@@ -47,6 +58,7 @@ const nodeApiDocHelmetOption: any = {
       scriptSrc: nodeApiDocHelmetOptionScripts,
       styleSrc: nodeApiDocHelmetOptionStyles,
       workerSrc: nodeApiDocHelmetOptionWorkers,
+      imgSrc: nodeApiDocHelmetOptionImages,
     },
   },
   crossOriginResourcePolicy: { policy: 'cross-origin' },
