@@ -3,6 +3,7 @@ import {
   DEFAULT_STOPLIGHT_LAYOUT,
   DEFAULT_TITLE,
   DEFAULT_API_DOC_PLATFORM,
+  DEFAULT_META_DESCRIPTION,
 } from '@/core/constant'
 import { NodeJSApiDocHandler } from '@/core/server'
 import { IStoplight } from '@/core/type'
@@ -10,6 +11,7 @@ import { ApiDocPlatformType } from '@/core/web'
 
 type Config = {
   title: string
+  metaDescription: string
   apiDocPlatfomDefault: ApiDocPlatformType
   apiDocPlatfomLayout: string
   path: string
@@ -21,6 +23,12 @@ type BaseConfigOnConstructor = {
    * @default "API Docs"
    */
   title?: string
+
+  /**
+   * The page meta description
+   * @default "API Documentation"
+   */
+  metaDescription?: string
 
   /**
    * the default of doc path, the value should have / in prefix
@@ -104,7 +112,11 @@ class JSApiDocBaseFramework {
    * 
    */
   constructor(app: any, document: object, config: ConfigOnConstructor = {}) {
-    const { customPath = DEFAULT_PATH, title = DEFAULT_TITLE } = config
+    const {
+      customPath = DEFAULT_PATH,
+      title = DEFAULT_TITLE,
+      metaDescription = DEFAULT_META_DESCRIPTION,
+    } = config
 
     let layout = ''
     let apiDocPlatformType: ApiDocPlatformType =
@@ -126,6 +138,7 @@ class JSApiDocBaseFramework {
     this.document = document
     this.config = {
       title,
+      metaDescription,
       apiDocPlatfomDefault: apiDocPlatformType,
       path: customPath,
       apiDocPlatfomLayout: layout,
