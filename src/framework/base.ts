@@ -2,10 +2,81 @@ import {
   DEFAULT_PATH,
   DEFAULT_STOPLIGHT_LAYOUT,
   DEFAULT_TITLE,
-  DEFAULT_UI,
+  DEFAULT_API_DOC_PLATFORM,
 } from '@/core/constant'
-import { handlerParamOpenApi30, handlerParamsDocs } from '@/core/server'
-import { Config, ConfigOnConstructor } from '@/core/type'
+import { NodeJSApiDocHandler } from '@/core/server'
+import { IStoplight } from '@/core/type'
+import { ApiDocPlatformType } from '@/core/web'
+
+type Config = {
+  title: string
+  apiDocPlatfomDefault: ApiDocPlatformType
+  apiDocPlatfomLayout: string
+  path: string
+}
+
+type BaseConfigOnConstructor = {
+  /**
+   * The page title
+   * @default "API Docs"
+   */
+  title?: string
+
+  /**
+   * the default of doc path, the value should have / in prefix
+   * @default "/docs"
+   */
+  customPath?: string
+}
+
+type StoplightConfigOnConstructor = {
+  /**
+   * The default of UI Doc
+   * @default "stoplight"
+   */
+  apiDocPlatform?: 'stoplight'
+  /**
+   * @deprecated use apiDocPlatform
+   */
+  defaultUI?: never
+  /**
+   * A layout based on the default UI
+   */
+  layout?: IStoplight['layout']
+} & BaseConfigOnConstructor
+
+type StoplightOldConfigOnConstructor = {
+  /**
+   * The default of UI Doc
+   * @default "stoplight"
+   * @deprecated use apiDocPlatform
+   */
+  defaultUI?: 'stoplight'
+  apiDocPlatform?: 'stoplight'
+  /**
+   * A layout based on the default UI
+   */
+  layout?: IStoplight['layout']
+} & BaseConfigOnConstructor
+
+type OtherConfigOnConstructor = {
+  /**
+   * The default of UI Doc
+   * @default "stoplight"
+   * @deprecated use apiDocPlatform
+   */
+  defaultUI?: Exclude<ApiDocPlatformType, 'stoplight'>
+  apiDocPlatform?: Exclude<ApiDocPlatformType, 'stoplight'>
+  /**
+   * A layout based on the default UI
+   */
+  layout?: null
+} & BaseConfigOnConstructor
+
+type ConfigOnConstructor =
+  | StoplightConfigOnConstructor
+  | StoplightOldConfigOnConstructor
+  | OtherConfigOnConstructor
 
 class JSApiDocBaseFramework {
   app: any
@@ -33,16 +104,14 @@ class JSApiDocBaseFramework {
    * 
    */
   constructor(app: any, document: object, config: ConfigOnConstructor = {}) {
-    const {
-      defaultUI = DEFAULT_UI,
-      customPath = DEFAULT_PATH,
-      title = DEFAULT_TITLE,
-    } = config
+    const { customPath = DEFAULT_PATH, title = DEFAULT_TITLE } = config
 
     let layout = ''
+    let apiDocPlatformType: ApiDocPlatformType =
+      config.apiDocPlatform ?? config.defaultUI ?? DEFAULT_API_DOC_PLATFORM
 
     if (!config.layout) {
-      if (config.defaultUI === 'stoplight') {
+      if (apiDocPlatformType === 'stoplight') {
         layout = DEFAULT_STOPLIGHT_LAYOUT
       }
     } else {
@@ -57,9 +126,9 @@ class JSApiDocBaseFramework {
     this.document = document
     this.config = {
       title,
-      defaultUI,
-      customPath,
-      layout,
+      apiDocPlatfomDefault: apiDocPlatformType,
+      path: customPath,
+      apiDocPlatfomLayout: layout,
     }
   }
 
@@ -68,20 +137,21 @@ class JSApiDocBaseFramework {
    * @param router should be a class or object that responsible to determine the route
    */
   setupRoute(router: any) {
-    router.get(
-      ...handlerParamOpenApi30({
-        docPath: this.config.customPath,
-        document: this.document,
-      })
+    const nodeJSApiDocHandler = new NodeJSApiDocHandler(
+      this.config.path,
+      this.document,
+      {
+        config: {
+          title: this.config.title,
+          layout: this.config.apiDocPlatfomLayout,
+          metaDescription: '',
+        },
+        defaultType: this.config.apiDocPlatfomDefault,
+      }
     )
 
-    router.get(
-      ...handlerParamsDocs({
-        docPath: this.config.customPath,
-        defaultUI: this.config.defaultUI,
-        docOption: { title: this.config.title, layout: this.config.layout },
-      })
-    )
+    router.get(...nodeJSApiDocHandler.openApiHandlerParameter())
+    router.get(...nodeJSApiDocHandler.docsHandlerParameter())
   }
 }
 
