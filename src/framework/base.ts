@@ -4,6 +4,7 @@ import {
   DEFAULT_TITLE,
   DEFAULT_UI,
 } from '@/core/constant'
+import { handlerParamOpenApi30, handlerParamsDocs } from '@/core/server'
 import { Config, ConfigOnConstructor } from '@/core/type'
 
 class JSApiDocBaseFramework {
@@ -60,6 +61,27 @@ class JSApiDocBaseFramework {
       customPath,
       layout,
     }
+  }
+
+  /**
+   * Define the needed route
+   * @param router should be a class or object that responsible to determine the route
+   */
+  setupRoute(router: any) {
+    router.get(
+      ...handlerParamOpenApi30({
+        docPath: this.config.customPath,
+        document: this.document,
+      })
+    )
+
+    router.get(
+      ...handlerParamsDocs({
+        docPath: this.config.customPath,
+        defaultUI: this.config.defaultUI,
+        docOption: { title: this.config.title, layout: this.config.layout },
+      })
+    )
   }
 }
 
