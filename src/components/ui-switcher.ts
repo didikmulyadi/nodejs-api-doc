@@ -48,7 +48,7 @@ const UISwitcherHTML = `
     height: 30px;
     bottom: 0;
     right: 0;
-    margin: 25px 10px;
+    margin: 25px;
     z-index: 99;
     font-family: 'Roboto', sans-serif;
   }
@@ -117,7 +117,8 @@ const UISwitcherHTML = `
     justify-content: space-between;
     align-items: center;
     gap: 8px;
-    border-radius: 4px;
+    border-radius: 6px;
+    border: 1px solid #EEE;
     padding: 0 16px;
     width: content;
     max-width: 200px;
@@ -137,22 +138,18 @@ const UISwitcherHTML = `
   .floating-container .float-element span {
     color: #444;
     font-weight: 600;
+    font-size: 14px;
   }
 
-  .floating-container .float-element:nth-child(1) {
-    background: #42a5f5;
-    box-shadow: 0 20px 20px -10px rgba(66, 165, 245, 0.5);
+  .floating-container .float-element img {
+    width: 25px;
   }
 
-  .floating-container .float-element:nth-child(2) {
-    background: #4caf50;
-    box-shadow: 0 20px 20px -10px rgba(76, 175, 80, 0.5);
+  .floating-container .float-element {
+    
+    box-shadow: 0 20px 20px -10px rgba(121, 170, 209, 0.5);
   }
 
-  .floating-container .float-element:nth-child(3) {
-    background: #ff9800;
-    box-shadow: 0 20px 20px -10px rgba(255, 152, 0, 0.5);
-  }
 
 </style>
 <div class="floating-container">
