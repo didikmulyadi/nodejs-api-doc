@@ -1,8 +1,14 @@
+import { UISwitcherHTML } from '@/components/ui-switcher'
+
 type UIDocType = 'stoplight' | 'swagger' | 'redoc'
 type UIDocOption = {
   title: string
   layout: string
 }
+
+const additionalHTML = `
+  ${UISwitcherHTML}
+`
 
 const getUIRedocHTML = (openApiPath: string, { title }: UIDocOption) => {
   return `
@@ -33,6 +39,7 @@ const getUIRedocHTML = (openApiPath: string, { title }: UIDocOption) => {
             Redoc element with link to your OpenAPI definition
             -->
             <redoc spec-url="${openApiPath}/openapi"></redoc>
+            ${additionalHTML}
             <!--
             Link to Redoc JavaScript on CDN for rendering standalone element
             -->
@@ -57,22 +64,24 @@ const getUISwaggerHTML = (openApiPath: string, { title }: UIDocOption) => {
         <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5.3.2/swagger-ui.css" />
       </head>
       <body>
-      <div id="swagger-ui"></div>
-      <script src="https://unpkg.com/swagger-ui-dist@5.3.2/swagger-ui-bundle.js" crossorigin></script>
-      <script src="https://unpkg.com/swagger-ui-dist@5.3.2/swagger-ui-standalone-preset.js" crossorigin></script>
-      <script>
-        window.onload = () => {
-          window.ui = SwaggerUIBundle({
-            url: '${openApiPath}/openapi',
-            dom_id: '#swagger-ui',
-            presets: [
-              SwaggerUIBundle.presets.apis,
-              SwaggerUIStandalonePreset
-            ],
-            layout: "StandaloneLayout",
-          });
-        };
-      </script>
+        <div id="swagger-ui"></div>
+        ${additionalHTML}
+        <script src="https://unpkg.com/swagger-ui-dist@5.3.2/swagger-ui-bundle.js" crossorigin></script>
+        <script src="https://unpkg.com/swagger-ui-dist@5.3.2/swagger-ui-standalone-preset.js" crossorigin></script>
+        <script>
+          window.onload = () => {
+            window.ui = SwaggerUIBundle({
+              url: '${openApiPath}/openapi',
+              dom_id: '#swagger-ui',
+              presets: [
+                SwaggerUIBundle.presets.apis,
+                SwaggerUIStandalonePreset
+              ],
+              layout: "StandaloneLayout",
+            });
+            
+          };
+        </script>
       </body>
     </html>
   `
@@ -123,6 +132,7 @@ const getUIStopLightHTML = (
           router="hash"
           layout="${layout}"
         />
+        ${additionalHTML}
       </body>
     </html>
   `
