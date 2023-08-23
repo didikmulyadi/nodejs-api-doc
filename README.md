@@ -1,5 +1,5 @@
-<h1 align="center" style="border-bottom: none;">⚡️@didik-mulyadi/nodejs-api-doc</h1>
-<h3 align="center">A package to generate the API docs with multiple UI based on the open API file.</h3>
+<h1 align="center" style="border-bottom: none;">@didik-mulyadi/nodejs-api-doc⚡️</h1>
+<h3 align="center">NPM package to generate the API docs based on the open API file with multiple UI support</h3>
 <p align="center">
   <p align="center">
     <a href="https://www.npmjs.com/package/@didik-mulyadi/nodejs-api-doc">
@@ -24,6 +24,12 @@
 
 This package already supports NestJS and ExpressJS. <br/><br/>
 At this point, we are focusing on adding examples with many js-doc libraries. In the future, we will create our open API doc generation, "One Code for All Frameworks", but don't worry we are still making it support with other libraries.
+
+## Features 🚀
+
+1. Support multiple API doc platform UI, options: Swagger, Stoplight, and Redoc
+2. Easy to change the UI by query params `?ui=swagger|stoplight|redoc` or UI Switcher at the bottom right of the page
+3. Easy implementation, no need to refactor your existing code
 
 ## Installation 🚀
 
