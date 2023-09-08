@@ -1,4 +1,4 @@
-<h1 align="center" style="border-bottom: none;">@didik-mulyadi/nodejs-api-doc⚡️</h1>
+<h1 align="center" style="border-bottom: none;">Node JS API Doc⚡️</h1>
 <h3 align="center">NPM package to generate the API docs based on the open API file with multiple UI support</h3>
 <p align="center">
   <p align="center">
